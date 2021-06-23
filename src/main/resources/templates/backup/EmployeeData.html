@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Employee data</title>
+</head>
+<h3>Employee data</h3>
+<body>
+	<table border="3">
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Salary</th>
+			<th>Dept</th>
+			<th>HRA</th>
+			<th>TA</th>
+			<th>OPERATIONS</th>
+		</tr>
+		<tr th:each="obj:${employeeList}"> 
+			<td th:text="${obj.empId}" > </td>
+			<td th:text="${obj.empName}" />
+			<td th:text="${obj.empSalary}" />
+			<td th:text="${obj.empDept}" />
+			<td th:text="${obj.empHra}" />
+			<td th:text="${obj.empTa}" />
+			<td>
+				<a th:href="@{/employee/delete(id=${obj.empId})}">DELETE</a> | <a th:href="@{/employee/edit(id=${obj.empId})}">EDIT</a>
+			</td>
+		</tr>
+	</table>
+	<span th:text="${message}"></span>
+</body>
+
+</html>
